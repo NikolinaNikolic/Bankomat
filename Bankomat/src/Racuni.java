@@ -3,17 +3,18 @@ public class Racuni {
 	
 	private int brRacuna;
 	private String ime;
-	double stanje;
+	private double stanje;
+	
 
 	public Racuni() {
 	}
 	
-	public Racuni(int brRacuna,String ime) {
+	public Racuni(int brRacuna,String ime,double stanje) {
 		
 
 		this.brRacuna = brRacuna;
 		this.ime = ime;
-	//	this.stanje=stanje;
+	this.stanje=stanje;
 
 }
 	public int getBrRacuna() {

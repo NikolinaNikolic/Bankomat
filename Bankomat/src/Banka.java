@@ -2,11 +2,13 @@ import java.util.ArrayList;
 public class Banka {
 
 	ArrayList<Racuni> lista = new ArrayList<Racuni>();
-	public double stanje;
+	private double stanje;
+
+	//public double stanje;
 	
 
-	public void kreirajRacun(int brRacuna,String ime) {
-	
+	public void kreirajRacun(int brRacuna,String ime, double stanje) {
+	Racuni racun=new Racuni(brRacuna,ime,stanje);
 		boolean kreiraj=true;
 	
 	for(Racuni obj:lista)  {
@@ -22,44 +24,57 @@ public class Banka {
 	}
 	if(kreiraj=true) {
 		
-		lista.add(new Racuni());
-		System.out.println("Kreirali ste racun" +brRacuna +ime );
+		lista.add(racun);
+		System.out.println("Kreirali ste racun");
+	}}
+	
+	
+	
+	
+	public void uplati(int brRacuna1,double iznos,double stanje) {
+		for(Racuni obj:lista)  {
+			if(iznos < 0 && brRacuna1 <0)
+				{
+					System.out.println("Ne mozete uplatiti negativan iznos novca !!!");
+					return;
+				}
+			
+			else {
+			stanje=stanje+ iznos;
+			
+			System.out.println("Uplaceno je" + iznos+" Trenutno stanje je" +stanje);
+			}
+			}
 	}
-	
-	
-	}
-	
-	public void uplati(int brRacuna,double iznos) {
-		for (int i=0; i<lista.size();i++) {
-	
-		 double stanje = +iznos;
-		System.out.println(" uplaceno je" + iznos+" Trenutno stanje je" +stanje);
-	}
-	}
-	
+		
 	public void isplati(int brRacuna,double iznos) {
-		for (int i=0; i<lista.size();i++) {
+		
+
+		for(Racuni obj:lista)  {
 		if(iznos < 0 && brRacuna <0)
 			{
 				System.out.println("Ne mozete isplatit negativan iznos novca !!!");
 				return;
 			}
-		double stanje = 0;
-		if (iznos <stanje ) {
+		
+		if (iznos >obj.getStanje()) {
 			System.out.println("Nemate dovoljno na racunu ");
 			return;
 		}
-		this.stanje -= iznos;
-		System.out.println(" uplaceno je" + iznos+" Trenutno stanje je" +stanje);
+		else {
+		stanje =stanje- iznos;
+		System.out.println(" Isplaceno je" + iznos+" Trenutno stanje je" +stanje);
 	}
 	}
-	public void transfer(int racun1, int racun2,double iznos ) {
+	}
+	
+	public void transfer(int racun1, int racun2,double iznos,double stanje ) {
 		if(iznos < 0)
 		{
 			System.out.println("Ne mozete prebaciti negativan iznos novca");
 			return;
 		}
-		if (iznos < this.stanje) {
+		if (iznos < stanje) {
 			System.out.println("Nemate dovoljno na racunu");
 			return;
 		}
@@ -69,6 +84,7 @@ public class Banka {
 		System.out.println("Transakcija uspjesno izvrsena.!");
 	}
 	}
+	
 
 public void stanjeRacuna() {
 	
@@ -83,9 +99,9 @@ public void stanjeRacuna() {
 	
 }
 
-}
+
 
 	
-
+}
 
     
