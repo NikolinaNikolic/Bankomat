@@ -7,13 +7,11 @@ Banka racun=new Banka();
 Scanner unos=new Scanner(System.in);
 
 
-Racuni korisnik1 = new Racuni(1, " Nina ", 300);
-Racuni korisnik2=new Racuni(2,"Nikolina",100);
+Racuni korisnik1 = new Racuni(1, " Nina ");
+Racuni korisnik2=new Racuni(2,"Nikolina");
 
-System.out.println("Broj korisnika: " + korisnik1.getBrRacuna() + korisnik1.getIme()
-		+ korisnik1.getStanje());
-System.out.println("Broj korisnika: " + korisnik2.getBrRacuna() + korisnik2.getIme()
-+ korisnik2.getStanje());
+System.out.println("Broj korisnika: " + korisnik1.getBrRacuna() + korisnik1.getIme());
+System.out.println("Broj korisnika: " + korisnik2.getBrRacuna() + korisnik2.getIme());
 
 
 
@@ -31,14 +29,14 @@ System.out.println();
     System.out.println();
 
   int  broj = unos.nextInt();
- for(int i=0;i<100;i++) {
+ for(int i=0;i<10000;i++) {
 		if (broj==1) {
 		
-	 System.out.println("Unesite broj racuna, ime korisnika i stanje na racunu da biste kreirali racun");
+	 System.out.println("Unesite broj racuna, ime korisnika biste kreirali racun");
 		int brRacuna=unos.nextInt();
 		String ime=unos.nextLine();
-		double stanje=unos.nextDouble();
-		racun.kreirajRacun(brRacuna, ime, stanje);
+	//	double stanje=unos.nextDouble();
+		racun.kreirajRacun(brRacuna, ime);
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	
@@ -94,7 +92,7 @@ System.out.println();
 			
 		if(broj==5) {
 		System.out.println("Informacije o korisniku");	
-		racun.stanje();
+		racun.stanjeRacuna();
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	

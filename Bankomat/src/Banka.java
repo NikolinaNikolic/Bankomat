@@ -1,53 +1,58 @@
 import java.util.ArrayList;
 public class Banka {
-	
 
 	ArrayList<Racuni> lista = new ArrayList<Racuni>();
-	private double stanje;
+	public double stanje;
+	
 
-	public void kreirajRacun(int brRacuna,String ime,double stanje) {
-	lista.add(new Racuni());
+	public void kreirajRacun(int brRacuna,String ime) {
+	
+		boolean kreiraj=true;
+	
 	for(Racuni obj:lista)  {
 		if( obj.getBrRacuna()==brRacuna) {
+			kreiraj=false;
 	    System.out.println("Racun vec postoji");  
 	 }  
-	
-	if(brRacuna<0 && stanje<0) {
+	}
+	if(brRacuna<0) {
+		kreiraj=false;
 		System.out.println("Broj racuna mora biti pozitivan");
 		
 	}
-	else {
+	if(kreiraj=true) {
+		
 		lista.add(new Racuni());
+		System.out.println("Kreirali ste racun" +brRacuna +ime );
 	}
+	
+	
 	}
-	}
-
 	
 	public void uplati(int brRacuna,double iznos) {
-		
-		if(iznos < 0) {
-			System.out.println("Iznos mora biti pozitivan !!!");
-			return;
-		}
-		else {
-		stanje += iznos;
+		for (int i=0; i<lista.size();i++) {
+	
+		 double stanje = +iznos;
 		System.out.println(" uplaceno je" + iznos+" Trenutno stanje je" +stanje);
 	}
 	}
+	
 	public void isplati(int brRacuna,double iznos) {
-		if(iznos < 0)
+		for (int i=0; i<lista.size();i++) {
+		if(iznos < 0 && brRacuna <0)
 			{
 				System.out.println("Ne mozete isplatit negativan iznos novca !!!");
 				return;
 			}
-		if (iznos < this.stanje) {
+		double stanje = 0;
+		if (iznos <stanje ) {
 			System.out.println("Nemate dovoljno na racunu ");
 			return;
 		}
 		this.stanje -= iznos;
 		System.out.println(" uplaceno je" + iznos+" Trenutno stanje je" +stanje);
 	}
-
+	}
 	public void transfer(int racun1, int racun2,double iznos ) {
 		if(iznos < 0)
 		{
@@ -60,19 +65,19 @@ public class Banka {
 		}
 		else {
 		stanje += iznos;
-		this.stanje -= iznos;
-		System.out.println("Transakcija uspjesno izvrsena !!");
+		this.stanje-= iznos;
+		System.out.println("Transakcija uspjesno izvrsena.!");
 	}
 	}
 
-public void stanje() {
+public void stanjeRacuna() {
 	
-	for(int i=0; i<lista.size(); i++) {
-		Racuni racun=lista.get(i);
-		System.out.println(i+1 + ". racun:");
-		System.out.println("Broj racuna: " + racun.getBrRacuna());
-		System.out.println("Vlasnik racuna: " + racun.getIme());
-	    System.out.println("Iznos na racunu: " + racun.getStanje());
+	for(Racuni obj:lista)  {
+
+
+		System.out.println("Broj racuna: " + obj.getBrRacuna());
+		System.out.println("Vlasnik racuna: " + obj.getIme());
+	    System.out.println("Iznos na racunu: " + obj.getStanje());
 	    System.out.println();
 	}
 	

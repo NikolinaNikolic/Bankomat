@@ -8,12 +8,12 @@ public class Racuni {
 	public Racuni() {
 	}
 	
-	public Racuni(int brRacuna,String ime,double stanje) {
+	public Racuni(int brRacuna,String ime) {
 		
 
 		this.brRacuna = brRacuna;
 		this.ime = ime;
-		this.stanje=stanje;
+	//	this.stanje=stanje;
 
 }
 	public int getBrRacuna() {
