@@ -7,13 +7,13 @@ Banka racun=new Banka();
 Scanner unos=new Scanner(System.in);
 
 
-Racuni korisnik1 = new Racuni(1, " Nina ");
+/*Racuni korisnik1 = new Racuni(1, " Nina ");
 Racuni korisnik2=new Racuni(2,"Nikolina");
 
 System.out.println("Broj korisnika: " + korisnik1.getBrRacuna() + korisnik1.getIme());
 System.out.println("Broj korisnika: " + korisnik2.getBrRacuna() + korisnik2.getIme());
 
-
+*/
 
 System.out.println("Izaberite broj:");
 System.out.println("Menu");
@@ -34,25 +34,31 @@ System.out.println();
 		
 	 System.out.println("Unesite broj racuna, ime korisnika biste kreirali racun");
 		int brRacuna=unos.nextInt();
-		String ime=unos.nextLine();
-	//	double stanje=unos.nextDouble();
-		racun.kreirajRacun(brRacuna, ime);
+	System.out.println("Unesite ime ");
+		String ime=unos.next();
+		System.out.println("Unesite stanje na racunu ");
+		double stanje=unos.nextDouble();
+		racun.kreirajRacun(brRacuna, ime,stanje);
+	
+		
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
-		}	
-			
+		}}	
+	
+	
 		if(broj==2) {
 			System.out.println("Na koji racun uplacujete");
 			int racun1=unos.nextInt();
 			System.out.println("Unesite koliko uplacujete");
 		    double iznos=unos.nextDouble();
-		    
+		    System.out.println("Trenutno stanje racuna je");
+		    double stanje=unos.nextDouble();
 		    while (iznos<0) {
 		    	System.out.println("Mora biti pozitivan");
 		    	iznos=unos.nextDouble();
 		    }
 
-		racun.uplati(racun1,iznos);
+		racun.uplati(racun1,iznos,stanje);
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	
@@ -78,13 +84,14 @@ System.out.println();
 		int racun2=unos.nextInt();
 		System.out.println("Unesite iznos");
 		double iznos=unos.nextDouble();
+		double stanje=unos.nextDouble();
 		
 		while (iznos<0) {
 			System.out.println("Iznos mora biti veci od 0");
 			iznos=unos.nextDouble();
 		}
 
-		racun.transfer(racun1, racun2,iznos);
+		racun.transfer(racun1, racun2,iznos,stanje);
 	
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
@@ -96,7 +103,7 @@ System.out.println();
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	
-		}}}
+		}}
 		
 		
 		
