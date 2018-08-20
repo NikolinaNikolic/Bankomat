@@ -29,7 +29,11 @@ System.out.println();
     System.out.println();
 
   int  broj = unos.nextInt();
- for(int i=0;i<10000;i++) {
+  do {
+		
+		try {
+			
+
 		if (broj==1) {
 		
 	 System.out.println("Unesite broj racuna, ime korisnika biste kreirali racun");
@@ -43,7 +47,7 @@ System.out.println();
 		
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
-		}}	
+		}	
 	
 	
 		if(broj==2) {
@@ -51,14 +55,13 @@ System.out.println();
 			int racun1=unos.nextInt();
 			System.out.println("Unesite koliko uplacujete");
 		    double iznos=unos.nextDouble();
-		    System.out.println("Trenutno stanje racuna je");
-		    double stanje=unos.nextDouble();
+		   
 		    while (iznos<0) {
 		    	System.out.println("Mora biti pozitivan");
 		    	iznos=unos.nextDouble();
 		    }
 
-		racun.uplati(racun1,iznos,stanje);
+		racun.uplati(racun1,iznos);
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	
@@ -103,10 +106,16 @@ System.out.println();
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
 		}	
-		}}
+		}
+
+  catch (Exception e) {
+		System.out.println("Pogresan unos pokusajte ponovo!");
+	}
+}
+	while (broj<6);
 		
-		
-		
+}
+}
 		
 		
 	

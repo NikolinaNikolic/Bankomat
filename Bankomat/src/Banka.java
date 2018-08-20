@@ -4,7 +4,7 @@ public class Banka {
 	ArrayList<Racuni> lista = new ArrayList<Racuni>();
 	private double stanje;
 
-	//public double stanje;
+	
 	
 
 	public void kreirajRacun(int brRacuna,String ime, double stanje) {
@@ -26,12 +26,13 @@ public class Banka {
 		
 		lista.add(racun);
 		System.out.println("Kreirali ste racun");
-	}}
+	}
+	}
 	
 	
 	
 	
-	public void uplati(int brRacuna1,double iznos,double stanje) {
+	public void uplati(int brRacuna1,double iznos) {
 		for(Racuni obj:lista)  {
 			if(iznos < 0 && brRacuna1 <0)
 				{
