@@ -29,9 +29,7 @@ public class Banka {
 	}
 	}
 	
-	
-	
-	
+
 	public void uplati(int brRacuna1,double iznos) {
 		for(Racuni obj:lista)  {
 			if(iznos < 0 && brRacuna1 <0)
@@ -62,45 +60,50 @@ public class Banka {
 			System.out.println("Nemate dovoljno na racunu ");
 			return;
 		}
-		else {
+		else 
 		stanje =stanje- iznos;
 		System.out.println(" Isplaceno je" + iznos+" Trenutno stanje je" +stanje);
-	}
+	
 	}
 	}
 	
 	public void transfer(int racun1, int racun2,double iznos,double stanje ) {
+		
+		for(Racuni racun:lista)  {
 		if(iznos < 0)
 		{
 			System.out.println("Ne mozete prebaciti negativan iznos novca");
 			return;
 		}
-		if (iznos < stanje) {
+		if (iznos > stanje) {
 			System.out.println("Nemate dovoljno na racunu");
 			return;
 		}
 		else {
-		stanje += iznos;
-		this.stanje-= iznos;
-		System.out.println("Transakcija uspjesno izvrsena.!");
+	
+		
+		stanje =racun.getStanje()+ iznos;
+		}
+		}
+		for(Racuni racun:lista)  {
+	 stanje=racun.getStanje()-iznos;
+		System.out.println("Transakcija uspjesno izvrsena.!.Trenutno je na racunu." +stanje);
 	}
 	}
 	
 
 public void stanjeRacuna() {
-	
-	for(Racuni obj:lista)  {
 
+	for(Racuni racun:lista)  {
+		
+			System.out.println("Broj racuna: " +racun.getBrRacuna());
+			System.out.println("Vlasnik racuna: " + racun.getIme());
+		    System.out.println("Iznos na racunu: " + racun.getStanje());
+		    System.out.println();
+		    
 
-		System.out.println("Broj racuna: " + obj.getBrRacuna());
-		System.out.println("Vlasnik racuna: " + obj.getIme());
-	    System.out.println("Iznos na racunu: " + obj.getStanje());
-	    System.out.println();
-	}
-	
-}
-
-
+		
+		}}
 
 	
 }

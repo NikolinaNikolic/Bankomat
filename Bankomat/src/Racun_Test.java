@@ -68,7 +68,7 @@ System.out.println();
 			
 			
 		if(broj==3) {
-			System.out.println("Sa kojeg koji racuna uplacujete");
+			System.out.println("Sa kojeg koji racuna isplacujete");
 			int racun1=unos.nextInt();
 		System.out.println("Unesite koliko zelite isplatiti");
 		
@@ -87,14 +87,16 @@ System.out.println();
 		int racun2=unos.nextInt();
 		System.out.println("Unesite iznos");
 		double iznos=unos.nextDouble();
-		double stanje=unos.nextDouble();
+		System.out.println("Koje je trenutno stanje na racunu");
+		double stanje1=unos.nextDouble();
+		
 		
 		while (iznos<0) {
 			System.out.println("Iznos mora biti veci od 0");
 			iznos=unos.nextDouble();
 		}
 
-		racun.transfer(racun1, racun2,iznos,stanje);
+		racun.transfer(racun1, racun2,iznos,stanje1);
 	
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
