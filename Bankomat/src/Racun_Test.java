@@ -1,19 +1,52 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+
 public class Racun_Test {
 
 	public static void main(String[] args) {
 		
 Banka racun=new Banka();
+
+
 Scanner unos=new Scanner(System.in);
+Racuni p1 = new Racuni(1,"Nina",345);
+Racuni p2 = new Racuni(2,"Ninaa",3455);
+
+try {
+	FileOutputStream f = new FileOutputStream("spisak.txt");
+	ObjectOutputStream o = new ObjectOutputStream(f);
+
+	
+	o.writeObject(p1);
+	o.writeObject(p2);
+
+	o.close();
+	f.close();
+
+	FileInputStream fi = new FileInputStream("spisak.txt");
+	ObjectInputStream oi = new ObjectInputStream(fi);
+
+	
+	Racuni pr1 = (Racuni) oi.readObject();
+	Racuni pr2 = (Racuni) oi.readObject();
+
+	System.out.println(pr1.toString());
+	System.out.println(pr2.toString());
+
+	oi.close();
+	fi.close();
 
 
-/*Racuni korisnik1 = new Racuni(1, " Nina ");
-Racuni korisnik2=new Racuni(2,"Nikolina");
+} 
+catch (Exception e) {
+	System.out.println("Error initializing stream");
+}
 
-System.out.println("Broj korisnika: " + korisnik1.getBrRacuna() + korisnik1.getIme());
-System.out.println("Broj korisnika: " + korisnik2.getBrRacuna() + korisnik2.getIme());
-
-*/
 
 System.out.println("Izaberite broj:");
 System.out.println("Menu");
@@ -23,6 +56,7 @@ System.out.println("2.Uplata na racun");
 System.out.println("3. Isplata");
 System.out.println("4. Transfer");
 System.out.println("5. Stanje racuna");
+System.out.println("6.Racun korisnika");
 
 System.out.println();
     System.out.print("Unesite opciju koju zelite" );
@@ -107,8 +141,9 @@ System.out.println();
 		racun.stanjeRacuna();
 		System.out.println("Unesite broj ponovo");
 		broj=unos.nextInt();
-		}	
 		}
+		}
+  
 
   catch (Exception e) {
 		System.out.println("Pogresan unos pokusajte ponovo!");
