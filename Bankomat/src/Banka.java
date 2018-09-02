@@ -100,12 +100,18 @@ public void stanjeRacuna() {
 			System.out.println("Vlasnik racuna: " + racun.getIme());
 		    System.out.println("Iznos na racunu: " + racun.getStanje());
 		    System.out.println();
-		    
+	
+
 
 		
 		}}
 
+
+
 	
 }
+
+	
+
 
     
